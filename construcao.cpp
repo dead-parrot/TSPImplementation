@@ -5,10 +5,9 @@
 
 int matrizAdj[301][301];
 
-
 typedef struct Solution{
     std::vector<int> sequence;
-    double valorObj;
+    double cost;
 } Solution;
 
 typedef struct InsertionInfo{
@@ -77,7 +76,7 @@ bool compare(InsertionInfo a, InsertionInfo b){
 }
 
 void ordenarEmOrdemCrescente(std::vector<InsertionInfo>* tabela){
-    sort(tabela->begin(), tabela->end(), compare);
+    std::sort(tabela->begin(), tabela->end(), compare);
 }
 
 void inserirNaSolucao(Solution* solucao, std::vector<InsertionInfo>* tabela, int selecionado){

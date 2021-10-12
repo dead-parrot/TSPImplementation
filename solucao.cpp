@@ -1,6 +1,11 @@
+#include <main.cpp>
+#include "construcao.cpp"
+#include "buscalocal.cpp"
+#include "perturbacao.cpp"
+
 Solution ILS(int maxIter, int maxIterIls){
     Solution bestOfAll;
-    bestOfAll.cost = INFINITY;
+    bestOfAll.valorObj = INFINITY;
     for(int i = 0; i < maxIter; i++){
         Solution s = Construcao();
         Solution best = s;
@@ -9,14 +14,14 @@ Solution ILS(int maxIter, int maxIterIls){
 
         while(iterIls <= maxIterIls){
             BuscaLocal(&s); 
-            if(s.cost < best.cost){
+            if(s.valorObj < best.valorObj){
                 best = s;
                 iterIls = 0;
             }
-            s = Perturbacao(best);
+            //s = Perturbacao(best);
             iterIls++;
         }
-        if (best.cost < bestOfAll.cost)
+        if (best.valorObj < bestOfAll.valorObj)
             bestOfAll = best;
     }
     return bestOfAll;

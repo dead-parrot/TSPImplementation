@@ -6,10 +6,10 @@
 
 using namespace std;
 
-typedef struct Solucao{
+typedef struct Solution{
     vector<int> sequencia;
     double valorObj;
-} Solucao;
+} Solution;
 
 void calcularValorObj(Solucao *s){
     s->valorObj = 0;
